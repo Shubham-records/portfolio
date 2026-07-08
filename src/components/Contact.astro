@@ -1,0 +1,269 @@
+---
+/**
+ * Contact.astro — "let's build something"
+ * Black background. Handwritten postcard style. SVG signature animation,
+ * hand-drawn mailto CTA, doodled envelope, social links.
+ */
+---
+
+<section id="contact" class="contact section--black">
+  <div class="contact__content container">
+    <h2 class="contact__title" id="contact-title">
+      let's build something
+    </h2>
+
+    <!-- Doodled arrow pointing to contact details -->
+    <svg class="contact__arrow-doodle" viewBox="0 0 80 60" fill="none" id="contact-arrow">
+      <path d="M5,50 C20,45 40,30 55,15 M55,15 L48,20 M55,15 L52,24" 
+        stroke="#F2A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Signature SVG animation -->
+    <div class="contact__signature-wrap">
+      <svg class="contact__signature" viewBox="0 0 400 80" fill="none" id="contact-sig">
+        <path id="contact-sig-path"
+          d="M20,50 C28,20 38,18 45,40 C50,55 42,62 38,58 C32,52 42,25 55,30 C62,33 58,55 70,48 
+             C78,42 82,35 88,38 C94,42 90,55 100,48 C108,42 112,32 120,38 
+             M140,50 C145,25 155,22 160,38 C163,50 155,58 150,54 
+             M175,55 C180,35 188,30 192,42 C195,52 186,58 182,54 C178,48 188,28 200,35 C208,40 204,55 215,48 
+             C222,42 228,32 235,38 
+             M260,50 C265,22 275,18 280,38 C283,48 276,58 270,54 
+             M295,55 C300,38 308,32 312,42 C314,52 306,58 302,54 
+             M325,35 C325,38 325,58 325,58 M320,38 C325,35 332,35 332,38"
+          stroke="#F2A623"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-dasharray="1500"
+          stroke-dashoffset="1500"
+        />
+      </svg>
+    </div>
+
+    <!-- CTA -->
+    <div class="contact__cta-wrap" id="contact-cta">
+      <!-- Doodled envelope -->
+      <svg class="contact__envelope" viewBox="0 0 36 28" fill="none">
+        <path d="M2,4 L18,16 L34,4 M2,4 C2,2 4,2 4,2 L32,2 C34,2 34,4 34,4 L34,24 C34,26 32,26 32,26 L4,26 C2,26 2,24 2,24 Z" 
+          stroke="#F2A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+      </svg>
+
+      <a href="mailto:subhampal342@gmail.com" class="contact__cta-btn" id="contact-email-btn">
+        say hi before overthinking it
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="contact__socials" id="contact-socials">
+      <a href="https://github.com/Shubham-records" target="_blank" rel="noopener" class="contact__social-link">
+        GitHub /Shubham-records
+      </a>
+      <a href="https://linkedin.com/in/shubham-kumar-pal-b30a45194" target="_blank" rel="noopener" class="contact__social-link">
+        LinkedIn /shubham-kumar-pal
+      </a>
+    </div>
+
+    <p class="contact__closing" id="contact-closing">
+      no forms, no friction — just an inbox
+    </p>
+  </div>
+</section>
+
+<style>
+  .contact {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 120px;
+  }
+
+  .contact__content {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact__title {
+    font-family: var(--font-hand);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--text-on-black);
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .contact__arrow-doodle {
+    width: 80px;
+    height: 60px;
+    margin: 0 auto 24px;
+    opacity: 0;
+  }
+
+  /* Signature */
+  .contact__signature-wrap {
+    margin: 0 auto 40px;
+    max-width: 400px;
+  }
+
+  .contact__signature {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    opacity: 0;
+  }
+
+  /* CTA button — hand-drawn circle/pill */
+  .contact__cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .contact__envelope {
+    width: 36px;
+    height: 28px;
+  }
+
+  .contact__cta-btn {
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--bg-black);
+    background: var(--accent);
+    padding: 14px 32px;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    text-decoration: none;
+    box-shadow: 3px 4px 12px rgba(242, 166, 35, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .contact__cta-btn:hover {
+    transform: translateY(-2px) rotate(-1deg);
+    box-shadow: 4px 6px 20px rgba(242, 166, 35, 0.4);
+  }
+
+  /* Social links */
+  .contact__socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .contact__social-link {
+    font-family: var(--font-hand);
+    font-size: 0.92rem;
+    color: var(--text-muted-black);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(242, 240, 235, 0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .contact__social-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .contact__closing {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted-black);
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    .contact {
+      padding: 80px 0 100px;
+    }
+
+    .contact__cta-btn {
+      font-size: 1rem;
+      padding: 12px 24px;
+    }
+
+    .contact__socials {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initContact() {
+    const sigPath = document.getElementById('contact-sig-path');
+    const sigSvg = document.querySelector('.contact__signature');
+
+    // Title
+    gsap.to('.contact__title', {
+      opacity: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '.contact', start: 'top 70%' },
+    });
+
+    // Arrow doodle
+    gsap.to('.contact__arrow-doodle', {
+      opacity: 1, duration: 0.5,
+      scrollTrigger: { trigger: '.contact', start: 'top 65%' },
+      delay: 0.3,
+    });
+
+    // Signature draw animation
+    ScrollTrigger.create({
+      trigger: '.contact__signature-wrap',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        if (sigSvg) gsap.to(sigSvg, { opacity: 1, duration: 0.3 });
+        if (sigPath) {
+          gsap.to(sigPath, {
+            strokeDashoffset: 0,
+            duration: 2.5,
+            ease: 'power2.inOut',
+          });
+        }
+      },
+    });
+
+    // CTA
+    gsap.to('.contact__cta-wrap', {
+      opacity: 1, y: 0, duration: 0.6,
+      scrollTrigger: { trigger: '.contact__cta-wrap', start: 'top 85%' },
+    });
+
+    // Socials
+    gsap.to('.contact__socials', {
+      opacity: 1, y: 0, duration: 0.5,
+      scrollTrigger: { trigger: '.contact__socials', start: 'top 90%' },
+    });
+
+    // Closing
+    gsap.to('.contact__closing', {
+      opacity: 1, duration: 0.5,
+      scrollTrigger: { trigger: '.contact__closing', start: 'top 95%' },
+    });
+  }
+
+  initContact();
+</script>

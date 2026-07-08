@@ -1,0 +1,300 @@
+---
+/**
+ * Projects.astro — "things I've built"
+ * Black background. Corkboard-style index cards with pushpins, tape,
+ * random rotation, torn edges, warm shadows.
+ * Desktop: sticky card-stack peel. Mobile: normal flow with fade-ups.
+ */
+---
+
+<section id="projects" class="projects section--black">
+  <div class="projects__header container">
+    <h2 class="projects__title" id="projects-title">
+      things I've built
+      <svg class="projects__title-squiggle" viewBox="0 0 220 10" preserveAspectRatio="none">
+        <path d="M2,6 Q25,2 50,7 T100,5 T150,7 T200,4 L218,6" fill="none" stroke="#F2A623" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </h2>
+  </div>
+
+  <div class="projects__deck container" id="projects-deck">
+    <!-- Card 1: auto-blogging-automation -->
+    <article class="project-card" data-card="1" style="--rot: -2deg">
+      <div class="project-card__inner">
+        <div class="pushpin" style="top: -6px; right: 24px;"></div>
+        <div class="project-card__torn-edge"></div>
+        <h3 class="project-card__title">auto-blogging-automation</h3>
+        <p class="project-card__tag">Final year project · content pipeline</p>
+        <p class="project-card__desc">
+          Scrapes Reddit communities for real user pain points, researches SEO keywords, generates matching images via Gemini Flash, writes SEO-formatted WordPress content in a custom voice, auto-injects images with alt tags via a search-and-replace keyword system, then publishes or schedules straight to WordPress.
+        </p>
+        <div class="project-card__stack">
+          <span style="--rot: -1deg">Python</span>
+          <span style="--rot: 3deg">Reddit API</span>
+          <span style="--rot: -2deg">Gemini API</span>
+          <span style="--rot: 1deg">WordPress API</span>
+        </div>
+        <p class="project-card__footer">Result: full marks, final semester</p>
+      </div>
+    </article>
+
+    <!-- Card 2: odoo-api-debug-console -->
+    <article class="project-card" data-card="2" style="--rot: 3deg">
+      <div class="project-card__inner">
+        <div class="tape" style="left: 16px; transform: rotate(-5deg);"></div>
+        <div class="project-card__torn-edge"></div>
+        <h3 class="project-card__title">odoo-api-debug-console</h3>
+        <p class="project-card__tag">Odoo Apps · developer tool</p>
+        <p class="project-card__desc">
+          Built out of necessity, not spec — client APIs weren't IP-whitelisted for local testing. Instead of hand-building a Postman-style form for 10-12 different APIs, built one reusable module: click a button, get the raw response, no manual body-building per endpoint.
+        </p>
+        <div class="project-card__stack">
+          <span style="--rot: 2deg">Odoo</span>
+          <span style="--rot: -3deg">Python</span>
+          <span style="--rot: 1deg">XML</span>
+        </div>
+        <p class="project-card__footer">Status: published on Odoo Apps</p>
+      </div>
+    </article>
+
+    <!-- Card 3: Odiware client work -->
+    <article class="project-card" data-card="3" style="--rot: -1deg">
+      <div class="project-card__inner">
+        <div class="pushpin" style="top: -6px; left: 20px; right: auto;"></div>
+        <div class="project-card__torn-edge"></div>
+        <h3 class="project-card__title">Odiware client work — 5 ERP builds</h3>
+        <p class="project-card__tag">Full stack developer · production systems</p>
+        <ul class="project-card__list">
+          <li>Construction management module</li>
+          <li>Legacy Odoo 14 data migration</li>
+          <li>Teacher–student exam and notes-sharing platform</li>
+          <li>Apartment/HVAC service ERP (quotation → sales → delivery → commissions → invoicing)</li>
+          <li>Government-integrated solar installation platform for a utility client</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .projects {
+    position: relative;
+    padding: 120px 0 80px;
+  }
+
+  .projects__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .projects__title {
+    font-family: var(--font-hand);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-on-black);
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .projects__title-squiggle {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+
+  .projects__deck {
+    max-width: 660px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* Card styling — index cards on corkboard */
+  .project-card {
+    opacity: 0;
+    transform: translateY(40px) rotate(var(--rot, 0deg));
+  }
+
+  .project-card__inner {
+    position: relative;
+    background: #FEFCF3;
+    color: var(--text-on-cream);
+    padding: 32px 28px 24px;
+    border-radius: 3px;
+    box-shadow: var(--shadow-card);
+    transform: rotate(var(--rot, 0deg));
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+  }
+
+  .project-card__inner:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: rotate(0deg) translateY(-4px);
+  }
+
+  /* Torn edge */
+  .project-card__torn-edge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: #FEFCF3;
+    clip-path: polygon(
+      0% 100%, 0% 30%, 4% 70%, 8% 20%, 12% 80%, 16% 40%, 20% 75%,
+      24% 25%, 28% 65%, 32% 35%, 36% 80%, 40% 15%, 44% 70%, 48% 30%,
+      52% 75%, 56% 20%, 60% 65%, 64% 40%, 68% 80%, 72% 25%, 76% 70%,
+      80% 35%, 84% 75%, 88% 20%, 92% 65%, 96% 40%, 100% 60%, 100% 100%
+    );
+  }
+
+  .project-card__title {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-on-cream);
+  }
+
+  .project-card__tag {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-muted-cream);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .project-card__desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(26, 26, 26, 0.75);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .project-card__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+
+  .project-card__list li {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: rgba(26, 26, 26, 0.75);
+    line-height: 1.7;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .project-card__list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .project-card__stack span {
+    font-family: var(--font-hand);
+    font-size: 0.78rem;
+    color: #555;
+    background: #FFF8DC;
+    padding: 4px 12px;
+    border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
+    transform: rotate(var(--rot, 0deg));
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 1px 2px 4px rgba(80, 60, 30, 0.1);
+  }
+
+  .project-card__footer {
+    font-family: var(--font-hand);
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 700;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+  }
+
+  /* Live link */
+  .project-card__link {
+    font-family: var(--font-hand);
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+
+  .project-card__link:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .projects {
+      padding: 80px 0 60px;
+    }
+
+    .project-card__inner {
+      transform: rotate(0deg);
+      padding: 24px 20px 20px;
+    }
+
+    .project-card {
+      transform: translateY(40px) rotate(0deg);
+    }
+
+    .projects__deck {
+      gap: 28px;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initProjects() {
+    // Title
+    gsap.to('.projects__title', {
+      opacity: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '.projects__header', start: 'top 80%' },
+    });
+
+    // Cards
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      const rot = getComputedStyle(card).getPropertyValue('--rot') || '0deg';
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+    });
+  }
+
+  initProjects();
+</script>

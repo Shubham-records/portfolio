@@ -1,0 +1,322 @@
+---
+/**
+ * BestWork.astro — "the ones I'm proudest of"
+ * Cream/off-white background. Hand-drawn winding trail SVG path with
+ * scroll-linked amber flag marker. Two project showcase cards.
+ */
+---
+
+<section id="best-work" class="bestwork section--cream">
+  <div class="bestwork__header container">
+    <h2 class="bestwork__title" id="bestwork-title">
+      the ones I'm proudest of
+      <svg class="bestwork__title-squiggle" viewBox="0 0 280 10" preserveAspectRatio="none">
+        <path d="M2,6 Q30,1 60,7 T120,5 T180,7 T240,4 L278,6" fill="none" stroke="#F2A623" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </h2>
+  </div>
+
+  <div class="bestwork__content container" id="bestwork-content">
+    <!-- Trail SVG -->
+    <div class="bestwork__trail-wrap">
+      <svg class="bestwork__trail" viewBox="0 0 600 200" preserveAspectRatio="none" id="bestwork-trail-svg">
+        <!-- Wobbly trail path -->
+        <path id="bestwork-trail-bg"
+          d="M30,160 C80,140 120,180 180,120 C220,80 260,140 320,100 C380,60 420,130 480,90 C520,60 560,100 570,80"
+          fill="none" stroke="rgba(26,26,26,0.12)" stroke-width="3" stroke-linecap="round" stroke-dasharray="8,6"/>
+        <path id="bestwork-trail-fill"
+          d="M30,160 C80,140 120,180 180,120 C220,80 260,140 320,100 C380,60 420,130 480,90 C520,60 560,100 570,80"
+          fill="none" stroke="#F2A623" stroke-width="3" stroke-linecap="round"
+          stroke-dasharray="1000" stroke-dashoffset="1000"/>
+        
+        <!-- Pin markers -->
+        <circle cx="180" cy="120" r="6" fill="#F2A623" opacity="0.3"/>
+        <circle cx="480" cy="90" r="6" fill="#F2A623" opacity="0.3"/>
+        
+        <!-- Flag marker (animated position) -->
+        <g id="bestwork-flag" transform="translate(30,160)">
+          <!-- Hand-drawn flag shape -->
+          <path d="M0,0 L0,-24 L18,-20 L16,-14 L20,-10 L0,-6" fill="#F2A623" stroke="#F2A623" stroke-width="1"/>
+          <line x1="0" y1="0" x2="0" y2="-24" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+          <text x="3" y="-12" font-family="Kalam, cursive" font-size="6" fill="#fff" font-weight="700">here</text>
+        </g>
+      </svg>
+
+      <!-- Handwritten mile-marker labels -->
+      <span class="bestwork__marker" style="left: 28%; top: 50%;">EZTRACK</span>
+      <span class="bestwork__marker" style="left: 78%; top: 35%;">HypeCia</span>
+    </div>
+
+    <!-- Project cards -->
+    <div class="bestwork__cards" id="bestwork-cards">
+      <!-- EZTRACK -->
+      <div class="bestwork__card is-visible" data-showcase="0" id="bestwork-card-0">
+        <div class="bestwork__card-inner" style="--rot: -2deg">
+          <div class="pushpin" style="top: -6px; right: 20px;"></div>
+          <h3 class="bestwork__card-title">EZTRACK</h3>
+          <p class="bestwork__card-desc">
+            Most small businesses in your area still track members and invoices on paper. EZTRACK is a role-based SaaS (owner/staff access) for gyms — member and supplement sales, dashboards, analytics, due-date alerts, low-stock alerts.
+          </p>
+          <p class="bestwork__card-details">
+            Built solo, using AI for audit and iteration after the core flow/logic/UI was mine. Migrated from Flask/React/SQLAlchemy to FastAPI + Next.js (SEO) + Supabase (Postgres + image storage). Live on Cloudflare Pages (frontend) + Render (backend), kept warm via a Google Apps Script cron job.
+          </p>
+          <div class="bestwork__card-meta">
+            <span class="bestwork__card-stat">First customer: Revolution Multi Gym</span>
+            <a href="https://eztrack.pages.dev" target="_blank" rel="noopener" class="bestwork__card-link">
+              view live →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HypeCia Connect -->
+      <div class="bestwork__card" data-showcase="1" id="bestwork-card-1">
+        <div class="bestwork__card-inner" style="--rot: 2deg">
+          <div class="tape" style="left: 14px; transform: rotate(-6deg);"></div>
+          <h3 class="bestwork__card-title">hypeciaconnect.com</h3>
+          <p class="bestwork__card-desc">
+            An enterprise-grade corporate site built to pitch infrastructure and AI security services to tier-1 telecom operators — organizing a wide technical catalog (telecom networks to MEP engineering) and leading with proof: a flagship 157-site Airtel deployment plus partner testimonials.
+          </p>
+          <p class="bestwork__card-details">
+            Landed through referral. Built as a high-conversion B2B site designed to drive consultation bookings.
+          </p>
+          <div class="bestwork__card-meta">
+            <a href="https://hypeciaconnect.com" target="_blank" rel="noopener" class="bestwork__card-link">
+              view live →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bestwork {
+    position: relative;
+    padding: 120px 0 80px;
+  }
+
+  .bestwork__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .bestwork__title {
+    font-family: var(--font-hand);
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--text-on-cream);
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .bestwork__title-squiggle {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+
+  .bestwork__content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Trail */
+  .bestwork__trail-wrap {
+    position: relative;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .bestwork__trail {
+    width: 100%;
+    height: auto;
+  }
+
+  .bestwork__marker {
+    position: absolute;
+    font-family: var(--font-hand);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  /* Cards */
+  .bestwork__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .bestwork__card {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .bestwork__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .bestwork__card-inner {
+    position: relative;
+    background: #fff;
+    color: var(--text-on-cream);
+    padding: 32px 28px 24px;
+    border-radius: 3px;
+    box-shadow: var(--shadow-card);
+    transform: rotate(var(--rot, 0deg));
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .bestwork__card-inner:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: rotate(0deg) translateY(-3px);
+  }
+
+  .bestwork__card-title {
+    font-family: var(--font-hand);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .bestwork__card-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(26, 26, 26, 0.75);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .bestwork__card-details {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted-cream);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: rgba(242, 166, 35, 0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .bestwork__card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+  }
+
+  .bestwork__card-stat {
+    font-family: var(--font-hand);
+    font-size: 0.82rem;
+    color: var(--text-muted-cream);
+    font-weight: 700;
+  }
+
+  .bestwork__card-link {
+    font-family: var(--font-hand);
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .bestwork__card-link:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .bestwork {
+      padding: 80px 0 60px;
+    }
+
+    .bestwork__card-inner {
+      transform: rotate(0deg);
+      padding: 24px 20px 20px;
+    }
+
+    .bestwork__trail-wrap {
+      margin-bottom: 32px;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initBestWork() {
+    // Title
+    gsap.to('.bestwork__title', {
+      opacity: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '.bestwork__header', start: 'top 80%' },
+    });
+
+    // Trail wrap
+    gsap.to('.bestwork__trail-wrap', {
+      opacity: 1, y: 0, duration: 0.7,
+      scrollTrigger: { trigger: '.bestwork__trail-wrap', start: 'top 85%' },
+    });
+
+    // Trail fill on scroll
+    ScrollTrigger.create({
+      trigger: '#best-work',
+      start: 'top 40%',
+      end: 'bottom 60%',
+      onUpdate: (self) => {
+        const fill = document.getElementById('bestwork-trail-fill');
+        if (fill) {
+          fill.style.strokeDashoffset = String(1000 - (self.progress * 1000));
+        }
+
+        // Move flag along path
+        const flag = document.getElementById('bestwork-flag');
+        const trailBg = document.getElementById('bestwork-trail-bg');
+        if (flag && trailBg) {
+          try {
+            const totalLength = trailBg.getTotalLength();
+            const point = trailBg.getPointAtLength(self.progress * totalLength);
+            flag.setAttribute('transform', `translate(${point.x},${point.y})`);
+          } catch(e) {}
+        }
+      },
+    });
+
+    // Cards
+    const cards = document.querySelectorAll('.bestwork__card');
+    cards.forEach(card => {
+      gsap.to(card, {
+        opacity: 1, y: 0, duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+    });
+  }
+
+  initBestWork();
+</script>
