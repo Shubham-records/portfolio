@@ -1,22 +1,20 @@
-# 🌌 Premium Astro.js Developer Portfolio Template
+# 🌌 Shubham Kumar Pal — Developer Portfolio
 
-A high-performance, visually stunning, single-page developer portfolio template built with **Astro.js** and **GSAP (GreenSock Animation Platform)**. 
+A high-performance, visually stunning developer portfolio built with **Next.js 15 (App Router)** and **GSAP (GreenSock Animation Platform)**. 
 
-Designed with modern dark-mode aesthetics, glassmorphism, responsive components, and fluid micro-animations. Written entirely in **pure JavaScript (no TypeScript syntax)** for simplicity and flexibility.
+Designed with an "engineer's notebook" aesthetic, featuring torn paper textures, hand-drawn SVG doodles, GSAP scroll-triggered animations, and fluid smooth scrolling powered by Lenis. Written in **pure JavaScript (no TypeScript syntax)** for simplicity and flexibility.
 
 ---
 
 ## ✨ Features
 
-- **🚀 Astro.js Power**: Ultra-fast page loads utilizing static generation.
-- **🎨 Modern Dark Aesthetics**: Deep space background with curated gradient highlights and glowing blobs.
-- **✨ Custom Floating Cursor**: Smooth trailing cursor effect that shifts design on hovering interactive elements.
-- **🌌 Interactive Particle Hero**: Real-time canvas particle physics network drawing connections dynamically.
-- **⚡ GSAP Animations**: Smooth entrance animations for headers, social links, and lists.
-- **📁 Dynamic Project Filter**: Sort projects (All, Web App, DeFi, AI) with staggered GSAP scale & fade transitions.
-- **📅 Vertical Experience Timeline**: Sleek timeline node layout highlighting career milestones.
-- **✉️ Validated Contact Form**: Interactive input fields with built-in validation and success confirmation state.
-- **📱 Fully Responsive**: Tailored grid systems adjusting seamlessly from mobile screens to wide desktops.
+- **🚀 Next.js App Router**: Optimized React architecture utilizing the latest Next.js features.
+- **🎨 "Engineer's Scrapbook" Aesthetics**: Unique design with paper textures, pushpins, tape, and hand-drawn doodle SVGs.
+- **⚡ GSAP ScrollTrigger Animations**: Elements draw themselves and animate in/out as you scroll (fully reversible).
+- **🌊 Lenis Smooth Scrolling**: Butter-smooth scrolling experience out of the box.
+- **🖥️ Dynamic Boot Sequence**: Terminal-style loading sequence with custom SVG signature drawing on initial load.
+- **📁 Global CSS Architecture**: Unified styling system using BEM conventions in a single `globals.css` file for ultimate speed and hydration safety.
+- **📱 Fully Responsive**: Fluid layouts that adapt beautifully from small mobile screens to wide desktops.
 
 ---
 
@@ -24,31 +22,25 @@ Designed with modern dark-mode aesthetics, glassmorphism, responsive components,
 
 ```text
 d:/portfolio/
+├── app/
+│   ├── globals.css              # Main stylesheet (BEM architecture, design tokens)
+│   ├── layout.jsx               # Next.js Root Layout, Font loader, Lenis provider
+│   └── page.jsx                 # Main entry page assembling all sections
+├── components/
+│   ├── BestWork.jsx             # Highlighted projects section with scroll tracking
+│   ├── BootSequence.jsx         # Initial loading animation (runs once per session)
+│   ├── BottomNav.jsx            # Sticky bottom navigation bar for mobile
+│   ├── Contact.jsx              # Footer contact section with SVG signature
+│   ├── Hero.jsx                 # Main header and intro text
+│   ├── Origin.jsx               # Biography timeline and journey
+│   ├── Projects.jsx             # Grid of side projects and client work
+│   ├── SmoothScrolling.jsx      # Lenis scroll provider component
+│   └── TopBar.jsx               # Fixed top navigation for desktop
 ├── public/
-│   ├── images/
-│   │   ├── project1.png         # Generated dashboard visual
-│   │   ├── project2.png         # Generated DeFi visual
-│   │   └── project3.png         # Generated AI visual
-│   ├── favicon.ico
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   ├── About.astro          # Biography & categorized skill tags
-│   │   ├── Contact.astro        # Validation check contact form & links
-│   │   ├── Experience.astro     # Vertical milestone timeline
-│   │   ├── Footer.astro         # Quick navigations & copyright
-│   │   ├── Hero.astro           # Header animations & particle canvas
-│   │   ├── Navbar.astro         # Glassmorphic header & mobile toggle
-│   │   └── Projects.astro       # Interactive card grid with GSAP filtering
-│   ├── layouts/
-│   │   └── Layout.astro         # HTML Shell, SEO tags, & mouse tracking cursor
-│   ├── pages/
-│   │   └── index.astro          # Index entry point assembling sections
-│   └── styles/
-│       └── global.css           # HSL design tokens, layouts, utilities
-├── astro.config.mjs             # Astro Configuration (JavaScript type check)
-├── jsconfig.json / tsconfig.json# Editor autocompletion configuration
-└── package.json                 # Dependency list
+│   └── (static assets, images, etc.)
+├── jsconfig.json                # Editor autocompletion and path aliasing
+├── next.config.mjs              # Next.js configuration
+└── package.json                 # Dependency list (Next, GSAP, React, Lenis)
 ```
 
 ---
@@ -62,38 +54,33 @@ npm install
 ```
 
 ### 2. Start Local Development Server
-Launch the dev server at `http://localhost:4321`:
+Launch the dev server at `http://localhost:3000`:
 ```bash
 npm run dev
 ```
 
 ### 3. Build for Production
-Compile optimized static files directly to `./dist/`:
+Compile optimized static and server-rendered files:
 ```bash
 npm run build
 ```
 
-### 4. Preview Local Build
-Preview the built files locally before hosting:
+### 4. Start Production Server
+Run the compiled production build:
 ```bash
-npm run preview
+npm start
 ```
 
 ---
 
-## 🎨 Customizing Design System
+## 🎨 Design System
 
-Modify design tokens in [src/styles/global.css](file:///d:/portfolio/src/styles/global.css) under `:root` to instantly change the style:
+All styles, CSS variables, fonts, and utilities are managed inside `app/globals.css`. 
 
-```css
-:root {
-  /* Customize brand theme HSL colors here */
-  --bg-primary-hsl: 250, 24%, 4%;
-  --accent-cyan-hsl: 182, 100%, 50%;
-  --accent-violet-hsl: 271, 76%, 53%;
-  --accent-pink-hsl: 330, 100%, 50%;
-}
-```
+Key tokens:
+- **Fonts**: Handled natively by Next.js `next/font/google` (Inter for body, Kalam for handwritten accents).
+- **Colors**: Defined at the top of `globals.css` (`--bg-color`, `--text-color`, `--accent-yellow`).
+- **Animations**: Logic is contained in the respective component `.jsx` files using `@gsap/react` `useGSAP()` hooks.
 
 ---
 
