@@ -31,7 +31,7 @@ export default function Projects() {
   }, { scope: container });
 
   return (
-    <section ref={container} id="projects" className="projects section--black">
+    <section ref={container} id="projects" className="projects section--white">
       <div className="projects__header container">
         <h2 className="projects__title">
           things I've built

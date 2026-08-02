@@ -56,7 +56,7 @@ export default function BestWork() {
   }, { scope: container });
 
   return (
-    <section ref={container} id="best-work" className="bestwork section--cream">
+    <section ref={container} id="best-work" className="bestwork section--white">
       <div className="bestwork__header container">
         <h2 className="bestwork__title">
           the ones I'm proudest of
