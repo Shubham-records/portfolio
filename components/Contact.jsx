@@ -44,7 +44,7 @@ export default function Contact() {
     // Footer text animation
     gsap.from('.contact__footer-text p', {
       opacity: 0, y: 20, duration: 0.6, stagger: 0.2,
-      scrollTrigger: { trigger: '.contact__footer', start: 'top 85%', toggleActions: 'play none none reverse' },
+      scrollTrigger: { trigger: '.contact__footer', start: 'top 96%', toggleActions: 'play none none reverse' },
     });
 
     // Signature path animation
@@ -65,7 +65,7 @@ export default function Contact() {
       const sigTl = gsap.timeline({
         scrollTrigger: {
           trigger: '.contact__footer',
-          start: 'top 85%',
+          start: 'top 96%',
           toggleActions: 'play none none reverse',
         }
       });
@@ -88,7 +88,7 @@ export default function Contact() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: '.contact__footer',
-            start: 'top 85%',
+            start: 'top 96%',
             toggleActions: 'play none none reverse',
           }
         }
