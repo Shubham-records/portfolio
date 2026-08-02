@@ -109,7 +109,7 @@ export default function Contact() {
               </h2>
               <p className="contact__pitch">
                 Ready to make a move? Drop an email to<br/>
-                discuss internships, collaborations, or just to say hi.
+                discuss collaborations, or just to say hi.
               </p>
             </div>
 
