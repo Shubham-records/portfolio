@@ -1162,11 +1162,11 @@ a {
 
 .editorial-hero__title {
   font-family: var(--font-primary), 'Oswald', var(--font-body); /* Primary font for name */
-  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-size: clamp(2.7rem, 7.7vw, 6.93rem);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.02em;
-  margin-bottom: 60px;
+  margin-bottom: 46px;
   text-transform: uppercase;
   color: var(--text-on-white);
 }
@@ -1174,21 +1174,21 @@ a {
 .editorial-hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 31px;
   align-items: flex-start;
-  padding-top: 10rem;
+  padding-top: 7.7rem;
 }
 
 .editorial-hero__roles {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-top: 10rem;
+  gap: 12px;
+  padding-top: 7.7rem;
 }
 
 .editorial-hero__role {
   font-family: 'BJCree', var(--font-secondary), 'Cormorant Garamond', var(--font-hand); /* Secondary font */
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.16rem, 2.31vw, 1.93rem);
   font-weight: 400;
   color: var(--text-muted-white);
   opacity: 0;
@@ -1205,7 +1205,7 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 936px;
+  max-width: 721px;
   background-color: #111;
   overflow: hidden;
 }
@@ -1218,14 +1218,14 @@ a {
 
 @media only screen and (max-width: 1711px) {
   .editorial-hero__image-wrap {
-    max-width: 48.333vw;
+    max-width: 37.2vw;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .editorial-hero__image-wrap {
-    max-width: 488px;
-    max-height: 525px;
+    max-width: 376px;
+    max-height: 405px;
     aspect-ratio: 488 / 525;
   }
 }
@@ -1239,8 +1239,8 @@ a {
 
 @media only screen and (max-width: 824px) {
   .editorial-hero__image-wrap {
-    max-width: 399px;
-    max-height: 429px;
+    max-width: 307px;
+    max-height: 330px;
     aspect-ratio: 399 / 429;
     margin: 0 auto;
   }
@@ -1251,8 +1251,8 @@ a {
   width: 100%;
   overflow: hidden;
   background: var(--text-on-white);
-  padding: 24px 0;
-  margin-top: 80px;
+  padding: 19px 0;
+  margin-top: 62px;
 }
 
 .editorial-hero__marquee {
@@ -1263,7 +1263,7 @@ a {
 
 .editorial-hero__marquee-content {
   font-family: var(--font-primary), 'Oswald', var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.16rem;
   font-weight: 700;
   color: var(--bg-white);
   text-transform: uppercase;
@@ -1283,6 +1283,6 @@ a {
     gap: 60px;
   }
   .editorial-hero__title {
-    margin-bottom: 40px;
+    margin-bottom: 31px;
   }
 }

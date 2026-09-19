@@ -64,7 +64,7 @@ export default function Hero() {
 
   return (
     <section ref={container} id="home" className="editorial-hero section--white">
-      <div className="container" style={{ position: 'relative', paddingBottom: '60px' }}>
+      <div className="container" style={{ position: 'relative', paddingBottom: '46px' }}>
         
         {/* Huge Editorial Title */}
         <h1 className="editorial-hero__title" style={{ display: 'flex', flexWrap: 'wrap', overflow: 'hidden' }}>
