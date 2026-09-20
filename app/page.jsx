@@ -1,4 +1,3 @@
-import BootSequence from '@/components/BootSequence';
 import Hero from '@/components/Hero';
 import Origin from '@/components/Origin';
 import Projects from '@/components/Projects';
@@ -11,7 +10,6 @@ import Recommendations from '@/components/Recommendations';
 export default function Home() {
   return (
     <main>
-      <BootSequence />
       <Hero />
       <Origin />
       <Projects />

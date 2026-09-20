@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
@@ -51,13 +51,7 @@ export default function Hero() {
       }, '-=0.5');
     };
 
-    if (typeof window !== 'undefined') {
-      if (sessionStorage.getItem('portfolio_booted')) {
-        playHeroAnim();
-      } else {
-        window.addEventListener('boot-complete', () => setTimeout(playHeroAnim, 200), { once: true });
-      }
-    }
+    playHeroAnim();
   }, { scope: container });
 
   const titleText = "SHUBHAM KUMAR PAL";
@@ -111,11 +105,37 @@ export default function Hero() {
 
       </div>
 
-      {/* Scrolling Marquee */}
+      {/* Logo Marquee */}
       <div className="editorial-hero__marquee-wrap" style={{ opacity: 0, transform: 'translateY(30px)' }}>
         <div className="editorial-hero__marquee">
           <div className="editorial-hero__marquee-content">
-            PYTHON ✦ JAVASCRIPT ✦ ODOO ✦ FASTAPI ✦ FLASK ✦ NEXT.JS ✦ REACT ✦ HTML5 ✦ CSS3 ✦ TAILWIND CSS ✦ POSTGRESQL ✦ SUPABASE ✦ MONGODB ✦ SQLALCHEMY ✦ GIT ✦ FIGMA ✦&nbsp;
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="editorial-hero__logo-set">
+                {[
+                  { src: '/logos/python.svg', name: 'Python' },
+                  { src: '/logos/javascript.svg', name: 'JavaScript' },
+                  { src: '/logos/odoo.svg', name: 'Odoo' },
+                  { src: '/logos/fastapi.svg', name: 'FastAPI' },
+                  { src: '/logos/flask.svg', name: 'Flask' },
+                  { src: '/logos/nextjs.svg', name: 'Next.js' },
+                  { src: '/logos/react.svg', name: 'React' },
+                  { src: '/logos/html5.svg', name: 'HTML5' },
+                  { src: '/logos/css3.svg', name: 'CSS3' },
+                  { src: '/logos/tailwindcss.svg', name: 'Tailwind CSS' },
+                  { src: '/logos/postgresql.svg', name: 'PostgreSQL' },
+                  { src: '/logos/supabase.svg', name: 'Supabase' },
+                  { src: '/logos/mongodb.svg', name: 'MongoDB' },
+                  { src: '/logos/sqlalchemy.svg', name: 'SQLAlchemy' },
+                  { src: '/logos/git.svg', name: 'Git' },
+                  { src: '/logos/figma.svg', name: 'Figma' },
+                ].map(({ src, name }) => (
+                  <div key={name} className="editorial-hero__logo-item">
+                    <img src={src} alt={name} className="editorial-hero__logo-icon" />
+                    <span className="editorial-hero__logo-name">{name}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>

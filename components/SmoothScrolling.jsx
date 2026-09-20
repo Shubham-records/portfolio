@@ -33,10 +33,6 @@ export default function SmoothScrolling({ children }) {
     };
 
     window.addEventListener('load', refreshST);
-    window.addEventListener('boot-complete', () => {
-      setTimeout(refreshST, 100);
-      setTimeout(refreshST, 400);
-    });
     window.addEventListener('resize', refreshST);
 
     return () => {

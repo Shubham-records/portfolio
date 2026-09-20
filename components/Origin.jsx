@@ -65,7 +65,7 @@ export default function Origin() {
       y: 300,
       contentPosition: "above",
       content: (
-        <p style={{ fontStyle: 'italic', fontSize: '1.2rem', color: 'var(--text-on-white)' }}>
+        <p style={{ fontStyle: 'italic', fontSize: '1.02rem', color: 'var(--text-on-white)' }}>
           "If I ever write a book on how I see building things, it will have infinite pages. And I'll still be figuring it out."
         </p>
       )
@@ -186,41 +186,41 @@ export default function Origin() {
               >
                 {/* Dot EXACTLY centered on (X, Y) */}
                 <div className="origin-node__dot-wrapper" style={{ position: 'absolute', top: 0, left: 0, transform: 'translate(-50%, -50%)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 2 }}>
-                  <div className="origin-node__dot" style={{ width: '46px', height: '46px', borderRadius: '50%', border: '5px solid #1A1A1A', backgroundColor: index === 3 ? 'var(--accent)' : 'var(--bg-white)', position: 'relative' }}>
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '18px', height: '18px', borderRadius: '50%', backgroundColor: '#1A1A1A' }}></div>
+                  <div className="origin-node__dot" style={{ width: '39px', height: '39px', borderRadius: '50%', border: '4px solid #1A1A1A', backgroundColor: index === 3 ? 'var(--accent)' : 'var(--bg-white)', position: 'relative' }}>
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '15px', height: '15px', borderRadius: '50%', backgroundColor: '#1A1A1A' }}></div>
                   </div>
                 </div>
 
                 {/* Content Box Positioned Above or Below the Dot */}
                 {node.contentPosition === 'above' ? (
-                  <div style={{ position: 'absolute', bottom: '25px', left: 0, transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '480px' }}>
+                  <div style={{ position: 'absolute', bottom: '25px', left: 0, transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '408px' }}>
                     
                     <div className="origin-node__content" style={{ padding: '0 20px 20px', textAlign: 'center', width: '100%' }}>
-                      <h3 style={{ fontFamily: 'var(--font-primary)', fontSize: '2rem', marginBottom: '12px', color: 'var(--text-on-white)', textTransform: 'uppercase' }}>{node.title}</h3>
-                      <div style={{ fontFamily: 'var(--font-hand)', fontSize: '1.1rem', color: 'var(--text-muted-white)', lineHeight: 1.6 }}>
+                      <h3 style={{ fontFamily: 'var(--font-primary)', fontSize: '1.7rem', marginBottom: '10px', color: 'var(--text-on-white)', textTransform: 'uppercase' }}>{node.title}</h3>
+                      <div style={{ fontFamily: 'var(--font-hand)', fontSize: '0.935rem', color: 'var(--text-muted-white)', lineHeight: 1.6 }}>
                         {node.content}
                       </div>
                     </div>
 
                     {/* Arrow pointing DOWN to dot */}
-                    <svg width="60" height="80" viewBox="0 0 60 80">
+                    <svg width="51" height="68" viewBox="0 0 60 80">
                       <path d="M 30,0 C 30,40 50,50 20,75" fill="none" stroke="#1A1A1A" strokeWidth="3" strokeLinecap="round" />
                       <path d="M 20,75 L 35,70 M 20,75 L 25,60" fill="none" stroke="#1A1A1A" strokeWidth="3" strokeLinecap="round" />
                     </svg>
 
                   </div>
                 ) : (
-                  <div style={{ position: 'absolute', top: '25px', left: 0, transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '480px' }}>
-                    
+                  <div style={{ position: 'absolute', top: '25px', left: 0, transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '408px' }}>
+
                     {/* Arrow pointing UP to dot */}
-                    <svg width="60" height="80" viewBox="0 0 60 80" style={{ transform: 'rotate(180deg)' }}>
+                    <svg width="51" height="68" viewBox="0 0 60 80" style={{ transform: 'rotate(180deg)' }}>
                       <path d="M 30,0 C 30,40 50,50 20,75" fill="none" stroke="#1A1A1A" strokeWidth="3" strokeLinecap="round" />
                       <path d="M 20,75 L 35,70 M 20,75 L 25,60" fill="none" stroke="#1A1A1A" strokeWidth="3" strokeLinecap="round" />
                     </svg>
 
                     <div className="origin-node__content" style={{ padding: '20px 20px 0', textAlign: 'center', width: '100%' }}>
-                      <h3 style={{ fontFamily: 'var(--font-primary)', fontSize: '2rem', marginBottom: '12px', color: 'var(--text-on-white)', textTransform: 'uppercase' }}>{node.title}</h3>
-                      <div style={{ fontFamily: 'var(--font-hand)', fontSize: '1.1rem', color: 'var(--text-muted-white)', lineHeight: 1.6 }}>
+                      <h3 style={{ fontFamily: 'var(--font-primary)', fontSize: '1.7rem', marginBottom: '10px', color: 'var(--text-on-white)', textTransform: 'uppercase' }}>{node.title}</h3>
+                      <div style={{ fontFamily: 'var(--font-hand)', fontSize: '0.935rem', color: 'var(--text-muted-white)', lineHeight: 1.6 }}>
                         {node.content}
                       </div>
                     </div>

@@ -7,18 +7,7 @@ export default function BottomNav() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const showNav = () => setIsVisible(true);
-    
-    if (typeof window !== 'undefined' && sessionStorage.getItem('portfolio_booted')) {
-      showNav();
-    } else {
-      const timer = setTimeout(showNav, 5000);
-      window.addEventListener('boot-complete', showNav);
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener('boot-complete', showNav);
-      };
-    }
+    setIsVisible(true);
   }, []);
 
   useEffect(() => {
