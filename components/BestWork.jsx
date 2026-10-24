@@ -14,11 +14,13 @@ const works = [
     title: 'EZTRACK',
     image: '/eztrack-hero.png',
     link: 'https://eztrack.pages.dev',
+    aspectRatio: '1885 / 898',
   },
   {
     title: 'HypeCia Connect',
     image: '/hypecia-hero.png',
     link: 'https://hypeciaconnect.com',
+    aspectRatio: '1024 / 485',
   },
 ];
 
@@ -59,9 +61,12 @@ export default function BestWork() {
       </div>
 
       <div className="bestwork__cards container">
-        {works.map(({ title, image, link }, index) => (
+        {works.map(({ title, image, link, aspectRatio }, index) => (
           <div key={index} className="bestwork__card" style={{ opacity: 0, transform: 'translateY(50px)' }}>
-            <div className="bestwork__card-image-wrap">
+            <div
+              className="bestwork__card-image-wrap"
+              style={aspectRatio ? { aspectRatio } : undefined}
+            >
               <img src={image} alt={title} className="bestwork__card-image" />
               <div className="bestwork__card-actions">
                 <a href={link} target="_blank" rel="noopener noreferrer" className="bestwork__card-action-btn" aria-label={`View ${title}`}>
